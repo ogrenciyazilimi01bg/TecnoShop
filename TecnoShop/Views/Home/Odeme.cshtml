@@ -1,0 +1,87 @@
+﻿@model TecnoShop.Models.OdemeBilgisi
+
+@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Http
+@{
+    var kullaniciAdi = Context.Session.GetString("KullaniciAdi");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme Sayfası</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/Odeme.css">
+   
+</head>
+<body>
+    <h1>Müşteri: @kullaniciAdi</h1>
+    @using (Html.BeginForm("OdemeBil", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {<fieldset>
+        <div class="container">
+            <h2>Ödeme Sayfası</h2>
+
+            <div class="card">
+                <label for="MusteriId">MusteriId</label>
+                <input type="text" id="MusteriId" name="MusteriId" class="form-control" required>
+                <label for="KartSahibi">Kart Sahibi:</label>
+                <input type="text" id="KartSahibi" name="KartSahibi" class="form-control" required>
+
+                    <div class="col">
+                        <label for="KartNo">Kart Numarası:</label>
+                        <input type="text" id="KartNo" name="KartNo" class="form-control" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" placeholder="xxxx-xxxx-xxxx-xxxx">
+                    </div>
+
+                    <script>
+                        // JavaScript kullanarak girişi kontrol etme
+                        document.getElementById('KartNo').addEventListener('input', function (e) {
+                            var inputValue = e.target.value.replace(/\D/g, ''); // Sadece sayıları al
+                            var formattedValue = inputValue.replace(/(\d{4})/g, '$1-'); // 4 basamaklık gruplara ayır
+
+                            // Son karakter '-' ise sil
+                            if (formattedValue.charAt(formattedValue.length - 1) === '-') {
+                                formattedValue = formattedValue.slice(0, -1);
+                            }
+
+                            e.target.value = formattedValue;
+                        });
+                    </script>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="SonKullanimTarihi">Son Kullanım Tarihi:</label>
+                        <input type="date" id="SonKullanimTarihi" name="SonKullanimTarihi" class="form-control" required>
+                    </div>
+                    <div class="col">
+                        <label for="Cvv">CVV:</label>
+                            <input type="text" id="Cvv" name="Cvv" class="form-control" required minlength="3" maxlength="3">
+                    </div>
+                </div>
+            </div>
+
+                <label for="ToplamFiyat">Toplam Fiyat:</label>
+                <input type="text" id="ToplamFiyat" name="ToplamFiyat" class="form-control" required readonly>
+
+
+            <button type="submit" class="btn btn-primary">Ödemeyi Tamamla</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </fieldset>
+
+
+
+    }
+    <script>
+        // session'da saklanan toplam fiyatı al
+        var totalAmountFromSession = sessionStorage.getItem('cartTotalAmount');
+
+        // ToplamFiyat input alanına değeri yerleştir
+        document.getElementById('ToplamFiyat').value = totalAmountFromSession;
+    </script>
+</body>
+</html>

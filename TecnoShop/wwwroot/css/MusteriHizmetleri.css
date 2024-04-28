@@ -1,0 +1,15 @@
+﻿body {
+    background-color: coral;
+}
+
+h1 {
+    background-color: white; /* Arkaplan rengini beyaz yapar */
+    color:#00FF00; /* Yazı rengini siyah yapar */
+    text-align: center
+}
+
+h2 {
+    background-color: white; /* Arkaplan rengini beyaz yapar */
+    color: black; /* Yazı rengini siyah yapar */
+    text-align: center
+}

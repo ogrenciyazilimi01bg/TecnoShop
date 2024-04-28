@@ -1,0 +1,125 @@
+﻿@using TecnoShop;
+@model List<UrunBilgi>
+@{
+    ViewData["Title"] = "TecnoShop";
+}
+@{
+    Layout = null;
+}
+
+    <!DOCHTYPE html>
+<html>
+<head>
+    <meta name="" content-type" content="text/html charset=utf-8" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="designer" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="language" content="Turkish" />
+    <meta name="description" content="TecnoShop: Sadece Bir Tık Uzağında Teknoloji Harikaları.Sitemizde her bütçeye uygun ve evinize almak istediğniz her türlü elektronik  eşya ürünü bulunur." />
+    <meta name="keywords" content="Beyaz eşya,Teknolojik aletler ,uygun fiyat,müşteri memnuniyeti garantili,Buzdolabı,,Çamaşır makinesi,Fırın,Ocak,Küçük ev aletleri,Kahve makinesi,Televizyon,Telefon,elektronik alet yedek" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="abstract" content="TecnoShop:Yaşamınıza dokunan teknoloji ile kolaylığı keşfedin.Aradığınız her türlü  yaşamınızı kolaylaştıracak beyaz eşyayı burada bulabilirsiniz.Tüm bütçelere uygun elektronik eşyalara bu sayfadan ulaşabilirsiniz." />
+    <meta name="copyright" content="&#169; TecnoShop.com 2023 Tüm Hakları Saklıdır." />
+    <meta name="designer" content="Begüm Geçer. Web Designer." />
+    <meta http-equiv="Resource-Type" content="document">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <base href="Index" target="_parent">
+    <link rel="icon" type="image/jpg" href="\Resimler\icon.jpg" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!--navbar menu-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;" data-bs-theme="light">
+        <div class="container">
+            <div class="container-fluid">
+
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <img src="\Resimler\icon.jpg" width="100" height="100">
+                    <h5 style="background-color:#e3f2fd">TeknoShop : Sadece Bir Tık Uzağında Teknoloji Harikaları!!!!</h5>
+                    <a class="nav-link" href="/Home/Iletisim" style="float: right; margin-left: 300px;">Müşteri Hizmetleri</a>
+                    <a href="/Home/Giris" style="float: right; margin-left: 15px; font-size: 20px;" title="Giriş yap">
+                        <span class="material-symbols-outlined">
+                            login
+                        </span>
+                    </a>
+                    
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!--navbar tanıtım-->
+    <div class="Slogan">
+
+
+        <h1 style="background-color:#00ff00">@DateTime.Now.ToLongDateString() </h1>
+
+
+
+    </div>
+    <!--Ürün katgorileri-->
+    <table style="width:100%">
+        <tr class="navbar">
+            <th>
+                <a href="/Home/Index">Tüm ürünler</a>
+
+
+            </th>
+            <th><a href="/Home/Giris">Buzdolabı</a></th>
+            <th><a href="/Home/Giris">Çamaşır makinesi</a></th>
+            <th><a href="/Home/Giris">Fırın</a></th>
+            <th><a href="/Home/Giris">Kahve makinesi</a></th>
+            <th><a href="/Home/Giris">Ocak</a></th>
+            <th><a href="/Home/Giris">Telefon</a></th>
+            <th><a href="/Home/Giris">Televizyon</a></th>
+
+
+        </tr>
+    </table>
+    <!--urun sergisi-->
+    <div class="container pb-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var item in Model)
+                {
+                <div class="col mb-3">
+                    <div class="card h-100">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.Resim)" class="img-fluid rounded" height="300px" width="400px">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Markası,@item.Kategori</h5>
+                            <p class="card-text">@item.TeknikOzellikler</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">@item.Fiyat TL</small>
+                            <a href="/Home/Giris/@item.UrunBilgiId" class="btn btn-primary ">
+                                Ürün incele
+                                <span class="material-symbols-outlined">
+                                    arrow_forward_ios
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                }
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
+
+

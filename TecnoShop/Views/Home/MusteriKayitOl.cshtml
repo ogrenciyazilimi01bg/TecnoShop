@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Müşeri Üye olma Sayfası";
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ev Tekno Peri</title>
+    <link rel="icon" type="image/jpg" href="\resimler\icon.jpg" />
+    <link rel="stylesheet" type="text/css" href="/css/Layout.css">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body style="background-color:black">
+    <!--navbar menu-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;" data-bs-theme="light">
+        <div class="container">
+            <div class="container-fluid">
+
+
+               
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Iletisim">İletişim</a>
+                        <h4><b>Müşteri Hizmetleri mail adresi:</b>e.teknoshop@gmail.com</h4>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index">Anasayfa</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="background-color:#00FF00">
+
+        <hr>
+
+        <div class="row">
+            <aside class="col-sm-4">
+
+                <div class="card" style="background-color:#e3f2fd;">
+                    <article class="card-body">
+                        <h4 class="card-title mb-4 mt-1">Müşteri Üye Formu </h4>
+                        <form method="post" action="MusteriKayit">
+                            <div class="form-group">
+                                <label>Ad:</label>
+                                <input name="MusteriAd" class="form-control" placeholder="Ad ve Soyad giriniz " type="text" required>
+                                
+
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <label>Telefon :</label>
+                                <input name="MusteriTelefon" class="form-control" placeholder="###-###-##-## gibi giriniz" type="tel" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Sehir</label>
+                                <input name="Sehir" class="form-control" placeholder="Yaşadığınız Şehir" type="text" required>
+                                
+                            </div> <!-- form-group// -->
+                           
+                            <div class="form-group">
+
+                                <label>Yaş</label>
+                                <input name="Yas" class="form-control" placeholder="" type="number" min="16" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>MailAdresi</label>
+                                <input name="MusteriMailAdresi" class="form-control" placeholder="...gmail.com" type="email" required>
+                            </div> <!-- form-group// -->
+
+                            <div class="form-group">
+                                <label>KullanıcıAdi</label>
+                                <input name="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" type="text" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Sifre</label>
+                                <input name="Sifre" class="form-control" placeholder="Sifre" type="text" required>
+                            </div> <!-- form-group// -->
+
+
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" required>
+                                <label class="custom-control-label" for="customCheck1">Burayı işaretleyerek bu sitenin tüm şartlarını kabul etmiş olursunuz</label>
+                            </div>
+                            <div class="form-group" href="">
+                                <button type="submit" href="" class="btn btn-primary btn-block"> Kayıt Ol  </button>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article>
+                </div> <!-- card.// -->
+            </aside>
+        </div>
+    </div>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <p>Lütfen aşağıdaki hataları düzeltin:</p>
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Diğer HTML ve form elemanları devam eder -->
+</body>
+</html>

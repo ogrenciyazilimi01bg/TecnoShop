@@ -1,0 +1,142 @@
+﻿@{
+    Layout = null;
+
+}
+@model UrunBilgi
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="" content-type" content="text/html charset=utf-8" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="designer" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="language" content="Turkish" />
+    <meta name="description" content="TecnoShop: Sadece Bir Tık Uzağında Teknoloji Harikaları.Sitemizde her bütçeye uygun ve evinize almak istediğniz her türlü elektronik  eşya ürünü bulunur." />
+    <meta name="keywords" content="Beyaz eşya,Teknolojik aletler ,uygun fiyat,müşteri memnuniyeti garantili,Buzdolabı,,Çamaşır makinesi,Fırın,Ocak,Küçük ev aletleri,Kahve makinesi,Televizyon,Telefon,elektronik alet yedek" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="abstract" content="TecnoShop:Yaşamınıza dokunan teknoloji ile kolaylığı keşfedin.Aradığınız her türlü  yaşamınızı kolaylaştıracak beyaz eşyayı burada bulabilirsiniz.Tüm bütçelere uygun elektronik eşyalara bu sayfadan ulaşabilirsiniz." />
+    <meta name="copyright" content="&#169; TecnoShop.com 2023 Tüm Hakları Saklıdır." />
+    <meta name="designer" content="Begüm Geçer. Web Designer." />
+    <meta http-equiv="Resource-Type" content="document">
+    <meta name="robots" content="all">
+    <base href="/Home/UrunEkle" target="_parent">
+    <link rel="stylesheet" type="text/css" href="/css/UrunEkle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="\resimler\icon.jpg" />
+
+</head>
+<body>
+    <a href="/Home/AnasayfaSatici">Anasayfa</a>
+    @using (Html.BeginForm("Urun", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <table>
+                <tr>
+                    <td><label for="EklenenTarih">Eklenen Tarih</label></td>
+                    <td>
+                        <!-- Display the current date in the format of day/month/year using JavaScript -->
+                        <input type="text" name="EklenenTarih" id="EklenenTarih" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Kategori">Kategori</label></td>
+                    <td>
+                        <select name="Kategori" id="Kategori" required>
+                            <option value="Buzdolabı">Buzdolabı</option>
+                            <option value="Ocak">Ocak</option>
+                            <option value="Fırın">Fırın</option>
+                            <option value="Çamaşır Makinesi">Çamaşır Makinesi</option>
+                            <option value="Kahve Makinesi">Kahve Makinesi</option>
+                            <option value="Televizyon">Televizyon</option>
+                            <option value="Telefon">Telefon</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Markası">Markası</label></td>
+                    <td><input type="text" name="Markası" id="Markası" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="UrunKodu">Urun Kodu</label></td>
+                    <td><input type="text" name="UrunKodu" id="urunkodu" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="Fiyat">Fiyat</label></td>
+                    <td><input type="text" name="Fiyat" id="Fiyat" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="AcıklamaDetay">Detaylı Açıklama</label></td>
+                    <td><input type="text" name="AcıklamaDetay" id="AcıklamaDetay" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="GarantiSuresi">Garanti Süresi</label></td>
+                    <td>
+                        <select name="GarantiSuresi" id="GarantiSuresi" required>
+                            <option value="1">1 </option>
+                            <option value="2">2 </option>
+                            <option value="3">3 </option>
+                            <option value="4">4 </option>
+                            <option value="5">5 </option>
+                            <option value="6">6 </option>
+                            <option value="7">7 </option>
+                            <option value="8">8 </option>
+                            <option value="9">9 </option>
+                            <option value="10">10 </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Teknik">Teknik Özellikler</label></td>
+                    <td><input type="text" name="TeknikOzellikler" id="Teknik" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="StokAdeti">Stok Adeti</label></td>
+                    <td><input type="number" name="Stok" id="KısaAcıklama" required min="1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Kargo">Kargo bilgisi</label></td>
+                    <td><input type="text" name="KargoBilgisi" id="Kargo" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="Iade">İade bilgisi</label></td>
+                    <td><input type="text" name="IadeBilgisi" id="Iade" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="SaticiId">SaticiId</label></td>
+                    <td><input type="number" name="SaticiId" id="SaticiId" required min="1" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" name="Images" class="custom-file-input" id="customFile" required>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Ekle" name="Ekle" /></td>
+                </tr>
+
+
+            </table>
+            <script>
+                // JavaScript code to set the current date in the format of day/month/year
+                var today = new Date();
+                var day = today.getDate();
+                var month = today.getMonth() + 1; // Month is zero-based
+                var year = today.getFullYear();
+
+                // Format the date as dd/mm/yyyy
+                var formattedDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + year;
+
+                // Set the formatted date as the value of the EklenenTarih input field
+                document.getElementById('EklenenTarih').value = formattedDate;
+            </script>
+
+        </fieldset>
+
+
+    }
+
+
+</body>
+</html>

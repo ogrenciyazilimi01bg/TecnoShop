@@ -1,0 +1,71 @@
+﻿@using TecnoShop;
+@model List<UrunBilgi>
+@{
+    ViewData["Title"] = "TecnoShop";
+}
+@using Microsoft.AspNetCore.Http
+@{
+    var kullaniciAdi = Context.Session.GetString("KullaniciAdi");
+}
+
+    <!DOCHTYPE html>
+<html>
+<head>
+    <meta name="" content-type" content="text/html charset=utf-8" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="designer" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="language" content="Turkish" />
+    <meta name="description" content="TecnoShop: Sadece Bir Tık Uzağında Teknoloji Harikaları.Sitemizde her bütçeye uygun ve evinize almak istediğniz her türlü elektronik  eşya ürünü bulunur." />
+    <meta name="keywords" content="Beyaz eşya,Teknolojik aletler ,uygun fiyat,müşteri memnuniyeti garantili,Buzdolabı,,Çamaşır makinesi,Fırın,Ocak,Küçük ev aletleri,Kahve makinesi,Televizyon,Telefon,elektronik alet yedek" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="abstract" content="TecnoShop:Yaşamınıza dokunan teknoloji ile kolaylığı keşfedin.Aradığınız her türlü  yaşamınızı kolaylaştıracak beyaz eşyayı burada bulabilirsiniz.Tüm bütçelere uygun elektronik eşyalara bu sayfadan ulaşabilirsiniz." />
+    <meta name="copyright" content="&#169; TecnoShop.com 2023 Tüm Hakları Saklıdır." />
+    <meta name="designer" content="Begüm Geçer. Web Designer." />
+    <meta http-equiv="Resource-Type" content="document">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <base href="/Home/IslemBasarili" target="_parent">
+    <link rel="stylesheet" type="text/css" href="/css/Islem.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1>Müşteri: @kullaniciAdi</h1>
+    <!--Ürün katgorileri-->
+    <table style="width:100%">
+        <tr class="navbar">
+            <th>
+                <a href="AnasayfaMusteri">Tüm ürünler</a>
+
+
+            </th>
+            <th><a href="Buzdolabi">Buzdolabı</a></th>
+            <th><a href="CamasirMakinesi">Çamaşır makinesi</a></th>
+            <th><a href="Firin">Fırın</a></th>
+            <th><a href="KahveMakinesi">Kahve makinesi</a></th>
+            <th><a href="Ocak">Ocak</a></th>
+            <th><a href="Telefon">Telefon</a></th>
+            <th><a href="Televizyon">Televizyon</a></th>
+
+
+        </tr>
+    </table>
+    <div class="success-message">
+        <h2>🎉 İşlem Başarıyla Gerçekleşti! 🎉</h2>
+        <p>Sevgili Değerli Müşterimiz,</p>
+        <p>Siparişiniz başarıyla tarafımıza ulaştı! Yaptığınız tercih için teşekkür ederiz. Uzman ekibimiz şimdi harekete geçiyor ve siparişinizi en kısa sürede hazırlayacak.</p>
+        <p>Siparişinizin durumu hakkında sizi bilgilendirmeye devam edeceğiz. Herhangi bir sorunuz veya özel talebiniz varsa, lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+        <p>İlginiz ve güveniniz için tekrar teşekkür ederiz. Sizi memnun etmek için buradayız!</p>
+        <p>Saygılarımla,<br>[TeknoShop] Müşteri Hizmetleri Ekibi 🌟</p>
+    </div>
+
+
+
+</body>
+</html>

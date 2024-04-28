@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Satıcı Kayıt Olma Sayfası";
+}
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TecnoShop</title>
+    <link rel="icon" type="image/jpg" href="\resimler\icon.jpg" />
+    <link rel="stylesheet" type="text/css" href="/css/Layout.css">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body style="background-color:black">
+    <!--navbar menu-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;" data-bs-theme="light">
+        <div class="container">
+            <div class="container-fluid">
+
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <img src="\resimler\icon.jpg" width="100" height="100">
+                    <h5 style="background-color:#e3f2fd">TeknoShop : Sadece Bir Tık Uzağında Teknoloji Harikaları!!!!</h5>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Iletisim">İletişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index">Anasayfa</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" style="background-color:#00FF00">
+
+        <hr>
+
+        <div class="row">
+            <aside class="col-sm-4">
+
+                <div class="card" style="background-color:#e3f2fd">
+                    <article class="card-body">
+                        <h4 class="card-title mb-4 mt-1">Satıcı Üye Formu </h4>
+                        <form medhod="post" action="SaticiKayit">
+                            <div class="form-group">
+                                <label>Ad:</label>
+                                <input name="SaticiAd" class="form-control" placeholder="Ad - Soyad giriniz" type="text" required>
+                             
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <label>Telefon :</label>
+                                <input name="SaticiTelefon" class="form-control" placeholder="###-###-##-## gibi giriniz" type="tel" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Şirket Adresi</label>
+                                <input name="SirketAdresi" class="form-control" placeholder="" type="text" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <label>Şirket Adi</label>
+                                <input name="SirketAd" class="form-control" placeholder="" type="text" required>
+                            </div> <!-- form-group// -->
+
+                            <div class="form-group">
+                                <label>MailAdresi</label>
+                                <input name="MailAdresi" class="form-control" placeholder="...gmail.com" type="email" required>
+                            </div> <!-- form-group// -->
+
+                            <div class="form-group">
+                                <label>KullanıcıAdi</label>
+                                <input name="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" type="text" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Sifre</label>
+                                <input name="Sifre" class="form-control" placeholder="Sifre" type="text" required>
+                            </div> <!-- form-group// -->
+
+
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" required>
+                                <label class="custom-control-label" for="customCheck1">Burayı işaretleyerek bu sitenin tüm şartlarını kabul etmiş olursunuz</label>
+                            </div>
+                            <div class="form-group" href="">
+                                <button type="submit" href="" class="btn btn-primary btn-block"> Kayıt Ol  </button>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article>
+                </div> <!-- card.// -->
+            </aside>
+        </div>
+    </div>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <p>Lütfen aşağıdaki hataları düzeltin:</p>
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+
+
+    
+</body>
+</html>

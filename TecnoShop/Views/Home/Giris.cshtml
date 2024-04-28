@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "GirisYap";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TeknoShop</title>
+    <link rel="icon" type="image/jpg" href="\resimler\icon.jpg" />
+    <link rel="stylesheet" type="text/css" href="/css/Layout.css">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body style="background-color:black">
+    <!--navbar menu-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;" data-bs-theme="light">
+        <div class="container">
+            <div class="container-fluid">
+
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <img src="\resimler\icon.jpg" width="100" height="100">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Iletisim">İletişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index">Anasayfa</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar tanıtım-->
+    <div class="Slogan">
+
+
+        <h1 style="background-color:#00ff00">@DateTime.Now.ToLongDateString() </h1>
+
+        <h5 style="background-color:#e3f2fd">TeknoShop : Sadece Bir Tık Uzağında Teknoloji Harikaları!!!!</h5>
+
+
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    </div>
+
+    <div class="container" style="background-color:#00FF00">
+
+        <hr>
+
+        <div class="row">
+            <aside class="col-sm-4">
+
+                <div class="card" style="background-color:#e3f2fd">
+                    <article class="card-body">
+                        <a href="/Home/MusteriKayitOl" class="float-right btn btn-outline-primary">Kaydolmak İstiyorum</a>
+                        <h4 class="card-title mb-4 mt-1">Müşteri Girişi </h4>
+                        <form method="post" action="/Home/AnasayfaMusteri">
+
+                            <div class="form-group">
+                                <label>KullanıcıAdi</label>
+                                <input name="KullaniciAdi" class="form-control" placeholder="KullaniciAdi" type="text" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Sifre</label>
+                                <input class="form-control" name="Sifre" placeholder="Sifre" type="password" required>
+                            </div> <!-- form-group// -->
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block"> Giriş  </button>
+                            </div> <!-- form-group// -->
+                        </form>
+
+                    </article>
+                </div> <!-- card.// -->
+            </aside>
+        </div>
+    </div>
+
+
+
+    <div class="container" style="background-color:#00FF00">
+
+        <hr>
+
+        <div class="row">
+            <aside class="col-sm-4">
+
+                <div class="card" style="background-color:#e3f2fd;">
+                    <article class="card-body">
+                        <a href="/Home/SaticiKayitOl" class="float-right btn btn-outline-primary">Kaydolmak İstiyorum</a>
+                        <h4 class="card-title mb-4 mt-1"> Satıcı Girişi Yap</h4>
+                        <form method="post" action="/Home/AnasayfaSatici">
+                            <div class="form-group">
+                                <label>KullanıcıAdi</label>
+                                <input name="KullaniciAdi" class="form-control" placeholder="KullaniciAdi" type="text" required>
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+
+                                <label>Sifre</label>
+                                <input class="form-control" name="Sifre" placeholder="Sifre" type="password" required>
+                            </div> <!-- form-group// -->
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block"> Giriş  </button>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article>
+                </div> <!-- card.// -->
+            </aside>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="background-color:#00ff00">
+            <b style=" color:black">Telif Hakkı &copy; 2023 TeknoShop</b>
+        </div>
+    </div>
+
+    
+</body>
+</html>

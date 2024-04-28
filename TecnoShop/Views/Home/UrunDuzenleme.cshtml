@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+@model UrunBilgi
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="" content-type" content="text/html charset=utf-8" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="designer" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="language" content="Turkish" />
+    <meta name="description" content="TecnoShop: Sadece Bir Tık Uzağında Teknoloji Harikaları.Sitemizde her bütçeye uygun ve evinize almak istediğniz her türlü elektronik  eşya ürünü bulunur." />
+    <meta name="keywords" content="Beyaz eşya,Teknolojik aletler ,uygun fiyat,müşteri memnuniyeti garantili,Buzdolabı,,Çamaşır makinesi,Fırın,Ocak,Küçük ev aletleri,Kahve makinesi,Televizyon,Telefon,elektronik alet yedek" />
+    <meta name="author" content="Begüm Geçer, begum.gecer@pru.edu.tr" />
+    <meta name="abstract" content="TecnoShop:Yaşamınıza dokunan teknoloji ile kolaylığı keşfedin.Aradığınız her türlü  yaşamınızı kolaylaştıracak beyaz eşyayı burada bulabilirsiniz.Tüm bütçelere uygun elektronik eşyalara bu sayfadan ulaşabilirsiniz." />
+    <meta name="copyright" content="&#169; TecnoShop.com 2023 Tüm Hakları Saklıdır." />
+    <meta name="designer" content="Begüm Geçer. Web Designer." />
+    <meta http-equiv="Resource-Type" content="document">
+    <meta name="robots" content="all">
+    <base href="/Home/UrunDuzenleme" target="_parent">
+    <link rel="stylesheet" type="text/css" href="/css/MusteriHizmetleri.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="\resimler\icon.jpg" />
+
+</head>
+<body>
+    <a href="/Home/AnasayfaSatici">Anasayfa</a>
+
+    <form method="post" action="Guncelle">
+        <table>
+
+            @Html.HiddenFor(x=>x.UrunBilgiId);
+            <tr>
+                <td><label for="Kategori">Kategori</label></td>
+                <td>@Html.EditorFor(x=>Model.Kategori)</td>
+            </tr>
+            <tr>
+                <td><label for="Markası">Markası</label></td>
+                <td>@Html.EditorFor(x=>Model.Markası)</td>
+            </tr>
+            <tr>
+                <td><label for="UrunKodu">Urun Kodu</label></td>
+                <td>@Html.EditorFor(x=>Model.UrunKodu)</td>
+            </tr>
+
+            <tr>
+                <td><label for="Fiyat">Fiyat</label></td>
+                <td>@Html.EditorFor(x=>Model.Fiyat)</td>
+            </tr>
+            <tr>
+                <td><label for="AcıklamaDetay">Detaylı Açıklama</label></td>
+                <td>@Html.EditorFor(x=>Model.AcıklamaDetay)</td>
+            </tr>
+            <tr>
+                <td><label for="Garanti Süresi">Garanti Süresi</label></td>
+                <td>@Html.EditorFor(x=>Model.GarantiSuresi)</td>
+            </tr>
+            <tr>
+                <td><label for="Teknik">Teknik Özellikler</label></td>
+                <td>@Html.EditorFor(x=>Model.TeknikOzellikler)</td>
+            </tr>
+            <tr>
+                <td><label for="StokAdeti">Stok Adeti</label></td>
+                <td>@Html.EditorFor(x=>Model.Stok)</td>
+            </tr>
+            <tr>
+                <td><label for="Kargo">Kargo bilgisi</label></td>
+                <td>@Html.EditorFor(x=>Model.KargoBilgisi)</td>
+            </tr>
+            <tr>
+                <td><label for="Iade">İade bilgisi</label></td>
+                <td>@Html.EditorFor(x=>Model.IadeBilgisi)</td>
+            </tr>
+            <tr>
+                <td><label for="SaticiId">SaticiId</label></td>
+                <td>@Html.EditorFor(x=>Model.SaticiId)</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Güncelle" name="Guncelle" /></td>
+            </tr>
+            <div class="custom-file">
+                <label class="custom-file-label" for="customFile">Resim Ekle</label>
+                <input type="file" name="Images" class="custom-file-input" id="customFile">
+
+            </div>
+
+        </table>
+    </form>
+
+
+</body>
+</html>
